@@ -1,0 +1,8 @@
+<div class="otp">
+    <div class="row">
+        <div class="card px-5 py-5">
+            <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="config"></ng-otp-input>
+            <button class="btn btn-success mt-4" (click)="signInWithOTP()">Verify OTP</button>
+        </div>
+    </div>
+</div>

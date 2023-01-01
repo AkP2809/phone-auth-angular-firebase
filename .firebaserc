@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-phone-auth": {
+      "hosting": {
+        "phone-auth-angular-firebase": [
+          "angular-phone-auth"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-phone-auth"
+  }
+}

@@ -1,8 +1,25 @@
-<div class="otp">
-    <div class="row">
-        <div class="card px-5 py-5">
-            <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="config"></ng-otp-input>
-            <button class="btn btn-success mt-4" (click)="signInWithOTP()">Verify OTP</button>
+<div class="container-fluid">
+    <div class="wrapper vh-100">
+        <div class="row align-items-center h-100">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="mx-auto" style="width: 400px">
+                    <div class="card p-4">
+                        <div class="d-flex justify-content-center">
+                            <div class="icon-block">
+                                <img src="https://img.icons8.com/ios/50/2E9AFE/lock-2.png" alt="Lock Icon" />
+                            </div>
+                        </div>
+                        <div class="text-center my-4">
+                            <h2 class="fw-bold">Ara Ara..</h2>
+                            <div class="text-muted">Enter the authentication code you received.</div>
+                        </div>
+                        <div class="my-4">
+                            <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="config"></ng-otp-input>
+                        </div>
+                        <button class="btn btn-lg w-100 mt-3 mb-4 py-3" [ngClass]="btnStatus" (click)="signInWithOTP()">{{remainingDigits}}</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -13,17 +13,16 @@ export class ServiceComponent implements OnInit {
 
   otpCode !: string;
   verify : any;
+  remainingDigits: string = 'Verify OTP';
+  btnStatus : string = 'btn-light';
 
   config = {
     allowNumbersOnly: true,
     length: 6,
     isPasswordInput: false,
     disableAutoFocus: false,
-    placeholder: '',
-    inputStyles: {
-      width: '50px',
-      height: '50px'
-    }
+    inputClass: 'digit-otp',
+    containerClass: 'd-flex justify-content-between'
   };
 
   constructor(private router: Router) { }
@@ -36,6 +35,14 @@ export class ServiceComponent implements OnInit {
 
   onOtpChange(otpCode: any) {
       this.otpCode = otpCode;
+
+      if(this.otpCode.length < this.config.length) {
+          this.remainingDigits = (this.config.length - this.otpCode.length) + ' digits left';
+          this.btnStatus = 'btn-light';
+      } else if(this.otpCode.length == this.config.length) {
+        this.remainingDigits = "Let's Go.";
+        this.btnStatus = 'btn-primary';
+      }
   }
 
   signInWithOTP() {

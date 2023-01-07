@@ -19,6 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import firebase from 'firebase/compat/app';
 
 import { NgOtpInputModule } from  'ng-otp-input';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 
 firebase.initializeApp(environment.firebase)
 
@@ -40,7 +42,10 @@ firebase.initializeApp(environment.firebase)
     NgOtpInputModule
   ],
   providers: [
-    ScreenTrackingService,UserTrackingService
+    ScreenTrackingService,
+    UserTrackingService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
